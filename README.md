@@ -287,6 +287,19 @@ param_grid = {
     "n_estimators": [200, 500],
 }
 ```
+From our GridSearch, we got the following parameters:
+
+```python
+Fitting 3 folds for each of 72 candidates, totalling 216 fits
+Best params: {'max_depth': 9, 'min_samples_leaf': 2, 'min_samples_split': 4, 'n_estimators': 500}
+```
+
+With our new model, our Training and Validation scores were as such:
+
+```python
+Train score: 0.7688323220364067
+Validation score: 0.6130479806696583
+```
 
 
 ## Fairness Analysis
@@ -298,9 +311,11 @@ With this in mind, we set defined our hypothesis as such:
 
 Null hypothesis: The model is fair. The accuracy calculated for players from the Korean Region (LCK) is the same as the accuracy calculated from those in the North American Region (NLC).
 
-Null hypothesis: The model is unfair. The accuracy calculated for players from the Korean Region (LCK) is not the same as the accuracy calculated from those in the North American Region (NLC).
+Alternate hypothesis: The model is unfair. The accuracy calculated for players from the Korean Region (LCK) is not the same as the accuracy calculated from those in the North American Region (NLC).
 
 Again, our test statistic was accuracy, however, this time, focusing on the difference between groups. 
+
+Our result showed a p_value of 0.1728, which is higher than our cutoff of 0.05. From this, we conclude that fail to reject the null hypothesis.
 
 
 
