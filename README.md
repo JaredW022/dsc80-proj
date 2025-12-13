@@ -163,17 +163,23 @@ Below is the head of our cleaned DataFrame:
 
 ### Univariate Analysis 
 
+This is a graph, depicting the distribution of game length.
+
 <iframe src="histogram_game_length.html" width=800 height=620 frameBorder=0></iframe>
 
 From this graph, we can see that the average length of a game follows a normal distribution, but is slightly right skewed. 
 
 ### Bivariate Analysis
 
+Below is a bivariative graph displaying the relationship between game length and dragons secured. 
+
 <iframe src="distributionWPMDC.html" width=800 height=620 frameBorder=0></iframe>
 
-This histogram shows that as game length increases, so does the number of dragons secured.
+This histogram shows that an increasing trend, where as game length increased, the number of dragons followed suit.
 
 ### Interesting Aggregates
+
+Below is an aggregated table from our dataset.
 
 <table border="1" class="dataframe">
   <thead>
