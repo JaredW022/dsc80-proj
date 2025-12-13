@@ -74,7 +74,62 @@ From this graph, we can see that the average length of a game follows a normal d
 
 <iframe src="distributionWPMDC.html" width=800 height=620 frameBorder=0></iframe>
 
-This histogram shows that as game length increases, so does the number of dragons secured
+This histogram shows that as game length increases, so does the number of dragons secured.
+
+### Interesting Aggregates
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>wpm_quartile</th>
+      <th>mean_wpm</th>
+      <th>mean_dragons</th>
+      <th>mean_dragons_per_min</th>
+      <th>mean_visionscore</th>
+      <th>n_games</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Low</td>
+      <td>2.47</td>
+      <td>1.82</td>
+      <td>1.04e-03</td>
+      <td>179.49</td>
+      <td>36391</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Med-Low</td>
+      <td>2.94</td>
+      <td>2.18</td>
+      <td>1.16e-03</td>
+      <td>222.54</td>
+      <td>36426</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Med-High</td>
+      <td>3.28</td>
+      <td>2.35</td>
+      <td>1.20e-03</td>
+      <td>251.08</td>
+      <td>36353</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>High</td>
+      <td>3.87</td>
+      <td>2.55</td>
+      <td>1.25e-03</td>
+      <td>292.85</td>
+      <td>36380</td>
+    </tr>
+  </tbody>
+</table>
+
 
 ## Assessment of Missingness
 
