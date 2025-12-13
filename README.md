@@ -373,8 +373,8 @@ Best params: {'max_depth': 9, 'min_samples_leaf': 2, 'min_samples_split': 4, 'n_
 With our new model, our Training and Validation scores were as such:
 
 ```python
-Train score: 0.7688323220364067
-Validation score: 0.6130479806696583
+Train score: 0.6279530843598174
+Validation score: 0.608404900950418
 ```
 While our model accuracy remains quite low, it improvevd from the baseline model, as well as the naive model. From this, we may conclude that the added parameters are not strong parameters for prediction on whether a team secured more dragons or not.
 
