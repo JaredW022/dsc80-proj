@@ -2,6 +2,8 @@
 
 ## Introduction
 
+Authors: Shaun Israni, Jared Wang
+
 ### General Introduction
 
 League of Legends is a popular multiplayer game, in which two teams of five players compete against one another, attempting to gain an advantage over the opposing team, and ultimately, reaching and destroying their base. Outside of standard play, there is a large competetive scene, where preorganized groups compete in organized tournaments. Of competetive play, the largest and most popular of such would be Worlds, a yearly competition in which select, qualified teams from different regions around the world come together and compete for the chance to win the world title.  
