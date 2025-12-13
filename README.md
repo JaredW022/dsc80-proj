@@ -64,6 +64,8 @@ From the data, we had missingness in columns, wpm, wcpm, cwpm, supvis and supcou
 
 # add dataframe.head here
 
+<iframe src="histogram_game_length.html" width=800 height=620 frameBorder=0></iframe>
+
 ## Assessment of Missingness
 
 ### MAR Analysis
