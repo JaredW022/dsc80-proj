@@ -266,7 +266,7 @@ A histogram of the null distribution shows a tight bell‑shaped curve centered 
 
 Conclusion: We reject the null hypothesis and conclude that the missingness of goldat25 does depend on game length. Games with missing goldat25 tend to be shorter on average.
 
-<iframe src="gold_missing_null_diff_glen" width=800 height=620 frameBorder=0></iframe>
+<iframe src="gold_missing_gamelength.html" width=800 height=620 frameBorder=0></iframe>
 
 Blue bars (or whatever color Plotly picks for False) = distribution of game lengths when goldat25 is not missing.
 Orange bars (True) = distribution when goldat25 is missing.
@@ -285,7 +285,8 @@ We encoded side as a binary variable (side_blue = 1 for Blue, 0 for Red) and aga
 
 Conclusion: We fail to reject the null hypothesis and conclude that the missingness of goldat25 does not depend on the team’s side. This makes sense, because goldat25 is recorded (or not) at the game level, and both teams share the same game.
 
-(Plot B)
+<iframe src="gold_missing_null_diff_glen" width=800 height=620 frameBorder=0></iframe>
+
 The blue histogram is what differences in mean game length look like under the null (when we randomly shuffle the missingness labels).
 The red vertical line is the observed difference (~−10 minutes), far out in the tail → strong evidence of dependence
 
