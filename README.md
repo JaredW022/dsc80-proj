@@ -259,26 +259,48 @@ As our observed value of -10 is far out from the null distribution, therefore, h
 
 ## Framing a Prediction Problem
 
+Since we saw a positive coorelation between the wards per minute and the number of dragons secured, we wanted to see if there was any relationship between other vision related metrics. More specifically, we wanted to ask, can we predict if a team ended up securing more dragons than their opponent based solely on vision related data?
+
+Our prediction model was focused on teamwide data, however, with an emphasis on the support role. The model that we build for this falls under Classification, where we Biranized the dragons column, assigning the value 1 if a team secured more dragons than their opponents, and 0 otherwise within a game. To address ties, we assigned the value 0 to both teams, as neither team has "more" dragons than the other. 
+
+We split our data into two parts, consisting of 70% training, and 30% test data. To evaluate this model, we considered accuracy as our primary metric, as our data was relatively balanced, skewed slightly by out assigning of 0 to ties. In our DataFrame, we had a Brianized ratio of 58% 0's, and 44% 1's.
+
 ## Baseline Model
 
 In our baseline model, we used a Random Forest Classifier with the features: ```wpm```, ```wcpm```, ```cwpm```. While all three of these features were quantitative, only two of them were provided in the original Data Tables. As mentioned earlier, we standardized ```controlwardsplaced```, dividing by the length of the game (in minutes), creating the new column ```cwpm```.
 
-After fitting a baseline model, our model resulted in a Training Accuracy of ```0.9992```. Out model, however, had a Test Accuracy of ```0.5469```, much lower than the Training Accuracy, suggesting that our model was likely over fitting the data.
+After fitting a baseline model, our model resulted in a Training Accuracy of ```0.9992```. Out model, however, had a Test Accuracy of ```0.5469```, much lower than the Training Accuracy, suggesting that our model was likely over fitting the data. Based on this low relative test accuracy, we concluded that there was likely room for improvement in this model.
 
 ## Step 7: Final Model
 
-In our final model, we added three new features to the data: ```visionscore```, ```supvis```, and ```supcont```. We chose to add these features to our model because in the game of Leauge of Legends, the supports typically have the largest impact on vision score, having dedicated items allowing for them to place more wards and clear wards more easily. Additionally, supports are often tasked with setting up for objectives, which is often associated with the use of control wards.
+In our final model, we added three new features to the data: ```visionscore```, ```supvis```, and ```supcont```. We chose to vision score to our features as it accounted for how long wards stayed alive, giving an additional metric to the number of wards placed. Additionally, we wanted to include support related data as in the game of Leauge of Legends, the supports typically have the largest impact on vision score. They often purchase dedicated items allowing for them to place more wards and clear opposing wards more easily, and are often tasked with setting up for objectives, which is often associated with the use of control wards.
+
+Our Final Model, similar to that of our base, was also a Random Forest Classifier. We captured the support related data through a query on position, and added these columns to our team based data. To fine tune our model, we tested different parameters, consisting of: ```max_depth```, ```min_samples_split```, ```min_samples_leaf```, and ```n_estimators```. We chose ```max_depth``` as we did not want our model to hyper focus on specific patterns, possibly reducing over fitting. As for ```min_sample_leaf```, we wanted to try and boost our test accuracy, trying to make more data driven predictions. For ```min_samples_split```, we wanted to prevent our model from branching off too much, again, preventing overfitting. As for ```n_estimators```, we wanted to ensure that there were sufficient trees in our model.
+
+With that in mind, we defined our paramater grid as such:
+
+```python
+param_grid = {
+    "max_depth": [5, 7, 9, None],
+    "min_samples_split": [2, 30, 45],
+    "min_samples_leaf": [2, 4, 8],
+    "n_estimators": [200, 500],
+}
+```
+
 
 ## Fairness Analysis
 We plan to check the fairness of our model through a comparison of two groups. The question that we decided to test was: Does our model perform worse for players from the Korean Region (LCK) relative to those of the North American Region (NLC)? 
 
 To assess this, we ran a permutation test, evaluating the diffence in accuracies between the two groups, with a p-value cutoff of 0.05.
 
+With this in mind, we set defined our hypothesis as such:
 
 Null hypothesis: The model is fair. The accuracy calculated for players from the Korean Region (LCK) is the same as the accuracy calculated from those in the North American Region (NLC).
 
 Null hypothesis: The model is unfair. The accuracy calculated for players from the Korean Region (LCK) is not the same as the accuracy calculated from those in the North American Region (NLC).
 
+Again, our test statistic was accuracy, however, this time, focusing on the difference between groups. 
 
 
 
