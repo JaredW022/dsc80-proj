@@ -58,11 +58,121 @@ The columns that we kept for the purpose of analysis consisted of:
 
 Of the 12 years of Worlds data collected, we decided to exclude years 2014-2018 from our analysis, as during that time frame, control wards were not a part of the game. And only after 2018, control wards have not been updated.
 
-We Concatenated the remaining 7 years into a two seperate DataFrames, being individual_data_df and team_data_df. From the total 883488 rows, we extracted the support related data (support vision score and support control wards) and added them as columns to the team data, we were left with a sibgle DataFrame, indexed by gameid and teamname, of 147186 rows. 
+We Concatenated the remaining 7 years into a two seperate DataFrames, being individual_data_df and team_data_df. From the total 883488 rows, we extracted the support related data (support vision score and support control wards) and added them as columns to the team data, we were left with a sibgle DataFrame, indexed by gameid and teamname, of 147186 rows. From the data, we had missingness in columns, wpm, wcpm, cwpm, supvis and supcount, which we imputed using the median of their respective columns.
 
-From the data, we had missingness in columns, wpm, wcpm, cwpm, supvis and supcount, which we imputed using the median of their respective columns.
+Below is the head of our cleaned DataFrame:
 
-# add dataframe.head here
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>league</th>
+      <th>gamelength</th>
+      <th>wpm</th>
+      <th>wcpm</th>
+      <th>...</th>
+      <th>cwpm</th>
+      <th>dragons_per_minute</th>
+      <th>supvis</th>
+      <th>supcont</th>
+    </tr>
+    <tr>
+      <th>gameid</th>
+      <th>teamname</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">ESPORTSTMNT01/1030526</th>
+      <th>Flamengo MDL</th>
+      <td>CBLOL</td>
+      <td>1770</td>
+      <td>2.88</td>
+      <td>1.46</td>
+      <td>...</td>
+      <td>1.02</td>
+      <td>1.69e-03</td>
+      <td>78.0</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>KaBuM! Esports</th>
+      <td>CBLOL</td>
+      <td>1770</td>
+      <td>2.98</td>
+      <td>1.12</td>
+      <td>...</td>
+      <td>1.46</td>
+      <td>0.00e+00</td>
+      <td>58.0</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">ESPORTSTMNT01/1040501</th>
+      <th>Vivo Keyd</th>
+      <td>CBLOL</td>
+      <td>2362</td>
+      <td>3.76</td>
+      <td>0.99</td>
+      <td>...</td>
+      <td>1.50</td>
+      <td>0.00e+00</td>
+      <td>106.0</td>
+      <td>25.0</td>
+    </tr>
+    <tr>
+      <th>Uppercut esports</th>
+      <td>CBLOL</td>
+      <td>2362</td>
+      <td>3.40</td>
+      <td>1.40</td>
+      <td>...</td>
+      <td>1.32</td>
+      <td>2.12e-03</td>
+      <td>99.0</td>
+      <td>18.0</td>
+    </tr>
+    <tr>
+      <th>ESPORTSTMNT01/1040511</th>
+      <th>ProGaming Esports</th>
+      <td>CBLOL</td>
+      <td>2128</td>
+      <td>3.27</td>
+      <td>1.18</td>
+      <td>...</td>
+      <td>1.30</td>
+      <td>0.00e+00</td>
+      <td>82.0</td>
+      <td>14.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 11 columns</p>
+</div>
 
 ### Univariate Analysis 
 
