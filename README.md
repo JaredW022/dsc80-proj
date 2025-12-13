@@ -376,7 +376,7 @@ With our new model, our Training and Validation scores were as such:
 Train score: 0.7688323220364067
 Validation score: 0.6130479806696583
 ```
-
+While our model accuracy remains quite low, it improvevd from the baseline model, as well as the naive model. From this, we may conclude that the added parameters are not strong parameters for prediction on whether a team secured more dragons or not.
 
 ## Fairness Analysis
 We plan to check the fairness of our model through a comparison of two groups. The question that we decided to test was: Does our model perform worse for players from the Korean Region (LCK) relative to those of the North American Region (NLC)? 
